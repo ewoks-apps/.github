@@ -9,5 +9,5 @@
 <!-- 
 If AI was used in this pull request, please write a quick sentence describing the tool(s) used and how they were used.
 
-See our AI policy at https://github.com/ewoks-kit/.github/blob/main/shared/CONTRIBUTING.md#AI-policy.
+See our AI policy at https://github.com/ewoks-apps/.github/blob/main/shared/CONTRIBUTING.md#AI-policy.
 -->
