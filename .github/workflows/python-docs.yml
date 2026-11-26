@@ -1,0 +1,21 @@
+name: Python Documentation
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: "Python version for documentation build"
+        type: string
+        default: "3.12"
+      pre-build-commands:
+        description: "Optional custom commands to run before building the documentation"
+        type: string
+        required: false
+        default: ""
+
+jobs:
+  docs:
+    uses: ewoks-kit/.github/.github/workflows/python-docs.yml@main
+    with:
+      python-version: ${{ inputs.python-version }}
+      pre-build-commands: ${{ inputs.pre-build-commands }}

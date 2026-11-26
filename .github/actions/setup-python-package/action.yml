@@ -1,0 +1,25 @@
+name: "Setup Python Environment"
+description: "Download and install artifact"
+
+inputs:
+  python-version:
+    description: "Python version"
+    required: false
+    default: "3.12"
+  install-extras:
+    description: "Extras to install"
+    required: false
+    default: ""
+  pre-install:
+    description: "Shell commands to run before installing the package"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: ewoks-kit/.github/.github/actions/setup-python-package@main
+      with:
+        python-version: ${{ inputs.python-version }}
+        install-extras: ${{ inputs.install-extras }}
+        pre-install: ${{ inputs.pre-install }}
