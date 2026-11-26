@@ -1,0 +1,14 @@
+name: Python Lint & Style & Security
+
+on:
+  workflow_call:
+    inputs:
+      enable-mypy:
+        type: string
+        default: "false"
+
+jobs:
+  checks:
+    uses: ewoks-kit/.github/.github/workflows/python-check.yml@main
+    with:
+      enable-mypy: ${{ inputs.enable-mypy }}

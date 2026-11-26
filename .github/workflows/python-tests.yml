@@ -1,0 +1,80 @@
+name: Python Tests
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: "3.12"
+      os:
+        required: false
+        type: string
+        default: "ubuntu-latest"
+      pytest-args:
+        required: false
+        type: string
+        default: "-v -ra -W error"
+      enable-coverage:
+        required: false
+        type: string
+        default: "false"
+      codecov-flags:
+        required: false
+        type: string
+        default: "unit"
+      jupyter-platform-dirs:
+        required: false
+        type: string
+        default: "1"
+      qt-qpa-platform:
+        required: false
+        type: string
+        default: "offscreen"
+      qt-api:
+        required: false
+        type: string
+        default: ""
+      display:
+        required: false
+        type: string
+        default: "0"
+      install-extras:
+        required: false
+        type: string
+        default: "test"
+      pre-install:
+        required: false
+        type: string
+        default: ""
+      post-install:
+        required: false
+        type: string
+        default: ""
+      package-managers:
+        required: false
+        type: string
+        default: ""
+    secrets:
+      codecov_token:
+        required: false
+
+jobs:
+  test:
+    uses: ewoks-kit/.github/.github/workflows/python-tests.yml@main
+    with:
+      python-version: ${{ inputs.python-version }}
+      os: ${{ inputs.os }}
+      pytest-args: ${{ inputs.pytest-args }}
+      enable-coverage: ${{ inputs.enable-coverage }}
+      codecov-flags: ${{ inputs.codecov-flags }}
+      jupyter-platform-dirs: ${{ inputs.jupyter-platform-dirs }}
+      qt-qpa-platform: ${{ inputs.qt-qpa-platform }}
+      qt-api: ${{ inputs.qt-api }}
+      display: ${{ inputs.display }}
+      install-extras: ${{ inputs.install-extras }}
+      pre-install: ${{ inputs.pre-install }}
+      post-install: ${{ inputs.post-install }}
+      package-managers: ${{ inputs.package-managers }}
+    secrets:
+      codecov_token: ${{ secrets.codecov_token }}

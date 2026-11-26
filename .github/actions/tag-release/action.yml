@@ -1,0 +1,19 @@
+name: Tag Release
+description: "Create a Git tag from installed sdist version"
+
+inputs:
+  python-version:
+    description: "Python version"
+    required: false
+    default: "3.12"
+  github-token:
+    description: "GitHub token with repo contents write permissions"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: ewoks-kit/.github/.github/actions/tag-release@main
+      with:
+        python-version: ${{ inputs.python-version }}
+        github-token: ${{ inputs.github-token }}

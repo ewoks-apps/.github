@@ -1,0 +1,8 @@
+name: Python Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    uses: ewoks-kit/.github/.github/workflows/python-build.yml@main
